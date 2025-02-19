@@ -10,6 +10,10 @@
 
 :root {
 
+  /**
+   * definimos las variables globales que podemos cambiar facilmente si se hace un cambio
+   */
+
   /*
   * Colores
   */
@@ -28,9 +32,11 @@
 
   /*tipografias*/
 
+  /**/
   --ff-chakra-petch: 'Chakra Petch', sans-serif;
   --ff-mulish: 'Mulish', sans-serif;
 
+   /*definir tamaños de fuentes de manera flexible*/
   --fs-1: 3.5rem;
   --fs-2: 3rem;
   --fs-3: 2.4rem;
@@ -66,7 +72,7 @@
 /*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
-
+ /*este apartado es para eliminar los estilos predeterminados del navegador*/
 
 *,
 *::before,
@@ -109,7 +115,7 @@ address {
 html {
   font-family: var(--ff-mulish);
   font-size: 10px;
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /*hace que el desplazamiento sea suave*/
 }
 
 body {
@@ -120,9 +126,13 @@ body {
 }
 
 :focus-visible {
-  outline-offset: 4px;
+  outline-offset: 4px; /*establece la distancia entre el borde y el contorno de un elemento*/
 }
 
+
+/*aplicaciones de normalice.css para la compatibilidad con otros navegadores*/
+
+/*-webkit es un prefijo para aplicar estilos que solo son soportados en navegadores como safari, opera, y versiones antiguas*/
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -148,13 +158,15 @@ body {
   #estilos reutillizados
 \*-----------------------------------*/
 
+/*estos estios se pueden aplicar a multiples elementos dentro de la pagina*/
+
 .container {
   padding-inline: 16px;
 }
 
 .material-symbols-rounded {
   --fs: 1em;
-  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 40;
+  font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 40; /*controlar las variables de una fuente tipografica*/
   font-size: var(--fs);
   width: 1em;
   overflow: hidden;
@@ -252,12 +264,12 @@ body {
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 8px; /*establecer el espaciado dentro de un elemento grid o flex*/
   padding: 12px 20px;
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
   transition: var(--transition);
-  will-change: transform;
+  will-change: transform; /*indica al navegador que esta propiedad va cambiar en el futuro*/
 }
 
 .btn:is(:hover, :focus-visible) {
@@ -270,13 +282,14 @@ body {
   animation: moving 2s ease-in-out infinite alternate; 
 }
 
+/*definir animaciones y define los fotogramas clave de una animacion*/
 @keyframes moving {
   0% { transform: translateY(0); }
   100% { transform: translateY(10px); }
 }
 
 .section { 
-  padding-block: var(--section-padding); 
+  padding-block: var(--section-padding); /*espaciado en un modelo de caja*/
 }
 
 .btn-link {
@@ -291,7 +304,7 @@ body {
 }
 
 .img-holder {
-  aspect-ratio: var(--width) / var(--height);
+  aspect-ratio: var(--width) / var(--height); /*establece la relacion ancho:alto de un elemento*/
   background-color: var(--light-gray);
   overflow: hidden;
 }
@@ -299,7 +312,7 @@ body {
 .img-cover {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /*establece como se ajusta la imagen a su contenedor*/
 }
 
 .has-scrollbar {
@@ -307,7 +320,7 @@ body {
   align-items: center;
   gap: 30px;
   overflow-x: auto;
-  scroll-snap-type: inline mandatory;
+  scroll-snap-type: inline mandatory; /*establece el tipo de desplazamiento de un contenedor*/
   padding-block-end: 20px;
 }
 
@@ -456,9 +469,13 @@ body {
   margin-block: 14px 18px;
 }
 
-.hero .btn { margin-inline: auto; }
+.hero .btn { 
+  margin-inline: auto; 
+}
 
-.hero-banner { aspect-ratio: var(--width) / var(--height); }
+.hero-banner { 
+  aspect-ratio: var(--width) / var(--height); 
+}
 
 .hero-banner img {
   position: absolute;
@@ -587,7 +604,7 @@ body {
 }
 
 .work-card .card-title { 
-  margin-block-end: 10px; 
+  margin-block-end: 10px; /*define el margen al final del bloque*/
 }
 
 .work-card .card-btn {
@@ -597,7 +614,7 @@ body {
   margin-inline: auto;
   width: 38px;
   height: 38px;
-  display: grid;
+  display: grid; /*permite organizar los elemetos en filas y columnas de formal flexible*/
   place-items: center;
   border-radius: var(--radius-circle);
 }
@@ -657,7 +674,7 @@ body {
 }
 
 .footer-list li:not(:first-child) { 
-  margin-block-start: 16px; 
+  margin-block-start: 16px; /*define el margen al inicio del bloque*/
 }
 
 .footer-link {
@@ -666,12 +683,13 @@ body {
   gap: 10px;
 }
 
+/*agrupar varios selectores en una sola declaracion para aplicrles e mismo estilo*/
 .footer-link:is(:hover, :focus-visible) { 
   color: var(--international-orange-engineering); 
 }
 
 .footer-link .material-symbols-rounded {
-  flex-shrink: 0;
+  flex-shrink: 0; /*indica al navegador que no debe cambiar el tamaño de un elemento*/
   font-size: 1.8rem;
   color: var(--international-orange-engineering);
 }
@@ -692,7 +710,7 @@ body {
   #MEDIA QUERIES
 \*-----------------------------------*/
 
-/* MEDIA QUERIS PARABPANTALLAS DE MAS DE  575PX DE TAMAÑO*/
+/* MEDIA QUERIS PARA PANTALLAS DE MAS DE  575PX DE TAMAÑO*/
 @media (min-width: 575px) {
 
   /**
