@@ -8,7 +8,7 @@
 \*-----------------------------------*/
 
 
-:root{
+:root {
 
   /*
   * Colores
@@ -30,14 +30,14 @@
 
   --ff-chakra-petch: 'Chakra Petch', sans-serif;
   --ff-mulish: 'Mulish', sans-serif;
-  
+
   --fs-1: 3.5rem;
   --fs-2: 3rem;
   --fs-3: 2.4rem;
   --fs-4: 1.8rem;
   --fs-5: 1.4rem;
   --fs-6: 1.2rem;
-  
+
   --fw-400: 400;
   --fw-600: 600;
   --fw-700: 700;
@@ -70,75 +70,73 @@
 
 *,
 *::before,
-*::after{
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-li{
+li {
   list-style: none;
 }
 
 a,
-img
-span,
-button{
+img span,
+button {
   display: block;
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 
-img
-{
+img {
   height: auto;
 }
 
-button{
+button {
   border: none;
   background: none;
   cursor: pointer;
   font: inherit;
 }
 
-address{
+address {
   font-style: normal;
 }
 
-html{
+html {
   font-family: var(--ff-mulish);
   font-size: 10px;
   scroll-behavior: smooth;
 }
 
-body{
+body {
   font-size: 1.6rem;
   color: var(--sonic-silver);
   background-color: var(--white);
   line-height: 1.5;
 }
 
-:focus-visible{
+:focus-visible {
   outline-offset: 4px;
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
   background-color: hsl(0, 0%, 98%);
 }
 
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
   background-color: hsl(0, 0%, 80%);
 }
 
-::-webkit-scrollbar-thumb:hover{
+::-webkit-scrollbar-thumb:hover {
   background-color: hsl(0, 0%, 70%);
 }
 
@@ -147,10 +145,10 @@ body{
 
 
 /*-----------------------------------*\
-  #estilos reutilizables
+  #estilos reutillizados
 \*-----------------------------------*/
 
-.container{
+.container {
   padding-inline: 16px;
 }
 
@@ -161,12 +159,11 @@ body{
 \*-----------------------------------*/
 
 
-.navbar,
 .header .btn {
   display: none;
 }
 
-.header{
+.header {
   padding: 40px 15px;
   position: absolute;
   top: 0;
@@ -176,22 +173,76 @@ body{
   z-index: 4;
 }
 
-.header .container{
+.header .container {
   display: flex;
- justify-content: space-between;
- align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo img{
+.logo img {
   width: 100px;
 }
 
-.nav-toggle-icon{
+.nav-toggle-icon {
   width: 30px;
   height: 2px;
   background-color: var(--white);
   transition: var(--transition);
 }
+
+.nav-toggle-icon:not(:last-child) {
+  margin-block-end: 7px;
+}
+
+.nav-toggle-btn.active .icon-2 {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.nav-toggle-btn.active .icon-1 {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.nav-toggle-btn.active .icon-3 {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+.navbar {
+  position: absolute;
+  top: 100%;
+  right: 30px;
+  width: 30%;
+  max-width: max-content;
+  background-color: var(--international-orange-engineering);
+  transform: translateY(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.25s var(--cubic-out);
+  z-index: 2;
+}
+
+.navbar.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform-origin: 0.5s;
+}
+
+.navbar-link {
+  font-family: var(--ff-chakra-petch);
+  font-size: var(--fs-5);
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 10px 20px;
+  transition: var(--transition);
+}
+
+.navbar-link:is(:hover, :focus-visible) {
+  background-color: var(--white);
+  color: var(--international-orange-engineering);
+}
+
+
 
 /*-----------------------------------*\
   #HERO
